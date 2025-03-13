@@ -208,5 +208,4 @@ Key Components:
 ## Assumptions
   1. Authenntication/Authorization handled at API gateway level
   2. Timestamps are in UTC format
-  3. pagination are not implemented for this list of operations.
-  4. All dates/times use ISO 8601 format
+  3. All dates/times use ISO 8601 format
