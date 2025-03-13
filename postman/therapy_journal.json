@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "a20d3087-d7fd-499b-b7d8-6fb8af0f16c1",
+    "name": "TherapyJournal",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37193417"
+  },
+  "item": [
+    {
+      "name": "Session",
+      "item": [
+        {
+          "name": "crreateSession",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"startTime\": \"2025-03-15T10:00:00Z\",\r\n  \"endTime\": \"2025-03-15T11:00:00Z\",\r\n  \"privateNotes\": \"Initial session notes\",\r\n  \"sharedNotes\": \"Welcome session 2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/therapists/therapist456/sessions",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "therapists",
+                "therapist456",
+                "sessions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "listSession",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiurl}}/therapists/therapist123/sessions",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "therapists",
+                "therapist123",
+                "sessions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateSession",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"startTime\": \"2025-03-15T10:00:00Z\",\r\n  \"endTime\": \"2025-03-15T11:30:00Z\",\r\n  \"privateNotes\": \"Updated private\",\r\n  \"sharedNotes\": \"Updated shared\",\r\n  \"status\": \"booked\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/therapists/therapist123/sessions/c6363b38-cc43-49ec-906b-7f2678e89d58",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "therapists",
+                "therapist123",
+                "sessions",
+                "c6363b38-cc43-49ec-906b-7f2678e89d58"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deleteSession",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{apiurl}}/therapists/therapist123/sessions/session456?startTime=2025-03-15T10:00:00Z",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "therapists",
+                "therapist123",
+                "sessions",
+                "session456"
+              ],
+              "query": [
+                {
+                  "key": "startTime",
+                  "value": "2025-03-15T10:00:00Z"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "mapping",
+      "item": [
+        {
+          "name": "createAppointment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"clientId\": \"client456\",\r\n  \"therapistId\": \"therapist123\",\r\n  \"startTime\": \"2025-03-15T10:00:00Z\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/sessions/f7e5c92e-4c56-4728-9d30-e3f124ef04df/appointments",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "sessions",
+                "f7e5c92e-4c56-4728-9d30-e3f124ef04df",
+                "appointments"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getMapping",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{apiurl}}/clients/client456/mappings",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "clients",
+                "client456",
+                "mappings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "confirmAppointment",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\": \"confirmed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/appointments/8911a974-4bbd-4f57-a508-629774169c61",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "appointments",
+                "8911a974-4bbd-4f57-a508-629774169c61"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RequestJournalAccess",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{apiurl}}/client-therapist-mappings/b46ac6c5-c453-4f7c-9ee7-84d806fc2232/journal-access-request",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "client-therapist-mappings",
+                "b46ac6c5-c453-4f7c-9ee7-84d806fc2232",
+                "journal-access-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "updateJournalAccess",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"journalAccess\": true,\r\n  \"status\": \"active\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/client-therapist-mappings/b46ac6c5-c453-4f7c-9ee7-84d806fc2232",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "client-therapist-mappings",
+                "b46ac6c5-c453-4f7c-9ee7-84d806fc2232"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "sendMessages",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"senderId\": \"client456\",\r\n  \"receiverId\": \"therapist456\",\r\n  \"content\": \"Completed pre-session forms. Whats next?\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{apiurl}}/messages",
+              "host": [
+                "{{apiurl}}"
+              ],
+              "path": [
+                "messages"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getMessages",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
